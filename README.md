@@ -21,7 +21,7 @@
 
 1. Clone repositori:
    <br>
-   git clone https://github.com/rofusedcryof/QuickRoom.git
+   git clone https://github.com/rofusedcryof/QuickRooms.git
 
 ## About Laravel
 
