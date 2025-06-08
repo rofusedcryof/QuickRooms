@@ -10,7 +10,8 @@ class PembayaranController extends Controller
 {
     public function index()
     {
-        
+        $pembayarans = Pembayaran::with('pemesanan')->get();
+        return view('pembayarans.index', compact('pembayarans'));
     }
 
     public function create()
@@ -34,7 +35,8 @@ class PembayaranController extends Controller
 
     public function show($id)
     {
-        
+        $pembayaran = Pembayaran::with('pemesanan')->findOrFail($id);
+        return view('pembayarans.show', compact('pembayaran'));
     }
 
     public function edit($id)
