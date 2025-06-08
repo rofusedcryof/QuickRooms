@@ -18,11 +18,17 @@ return new class extends Migration
             $table->date('tanggal_checkin');
             $table->date('tanggal_checkout');
             $table->enum('status', ['booking', 'Lunas'])->default('booking');
-            $table->decimal('total_harga', 10, 2);
+            $table->decimal('total_harga', 12, 2);
+            $table->text('catatan')->nullable(); // Catatan tambahan untuk pemesanan
+            $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggans')->onDelete('cascade');
-            $table->foreign('id_kamar')->references('id_kamar')->on('tingkat_kamars')->onDelete('cascade');
+            $table->foreign('id_pelanggan')
+                ->references('id_pelanggan')->on('pelanggans')
+                ->onDelete('restrict'); // Tidak boleh menghapus pelanggan jika ada pemesanan yang terkait
+            $table->foreign('id_kamar')
+                ->references('id_kamar')->on('tingkat_kamars')
+                ->onDelete('restrict');
         });
     }
 
@@ -31,6 +37,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('pemesanans', function (Blueprint $table) {
+            // Hapus foreign key constraint sebelum menghapus tabel
+            $table->dropForeign(['id_pelanggan']);
+            $table->dropForeign(['id_kamar']);
+        });
         Schema::dropIfExists('pemesanans');
     }
 };
