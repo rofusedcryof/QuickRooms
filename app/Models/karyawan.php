@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class karyawan extends Model
 {
-    protected $table = 'karyawans';
-
+    use HasFactory;
     protected $primaryKey = 'id_karyawan';
+    public $timestamps = true;
+    protected $fillable = [
+        'nama',
+        'email',
+        'no_hp',
+        'alamat',
+        'jabatan',
+    ];
 }
