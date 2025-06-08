@@ -37,6 +37,7 @@ class KamarController extends Controller
 
         return tingkat_kamar::create($request->all());
     }
+    
 
     /**
      * Display the specified resource.

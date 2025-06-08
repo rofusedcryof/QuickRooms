@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\TipeKamar;
+use App\Models\tipe_kamar;
 
 class TipeKamarController extends Controller
 {
     public function index()
     {
-        $tipeKamars = TipeKamar::all();
+        $tipeKamars = tipe_kamar::all();
         return view('tipe_kamars.index', compact('tipeKamars'));
     }
 
@@ -26,7 +26,7 @@ class TipeKamarController extends Controller
             'deskripsi' => 'nullable|string',
         ]);
 
-        TipeKamar::create($request->all());
+        tipe_kamar::create($request->all());
         return redirect()->route('tipe_kamars.index')->with('success', 'Tipe Kamar berhasil dibuat.');
     }
 
