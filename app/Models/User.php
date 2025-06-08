@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function pemesanan()
     {
-        return $this->hasMany(Pemesanan::class, 'user_id');
+        return $this->hasMany(Pemesanan::class, 'id_user');
     }
 }
