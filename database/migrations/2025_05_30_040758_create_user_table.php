@@ -14,6 +14,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('role', ['admin', 'karyawan', 'pelanggan'])->default('pelanggan');
+            $table->string('no_telp')->nullable();
+            $table->text('alamat')->nullable();
+            $table->string('jabatan')->nullable(); // hanya digunakan oleh role 'karyawan'
             $table->rememberToken();
             $table->timestamps();
         });
@@ -24,4 +27,3 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
-

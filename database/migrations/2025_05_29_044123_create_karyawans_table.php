@@ -13,10 +13,19 @@ return new class extends Migration
     {
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id('id_karyawan');
-            $table->string('nama');
-            $table->string('email')->unique();
-            $table->enum('jabatan', ['kasir', 'staff']);
+            $table->unsignedBigInteger('id_user')->unique()->nullable(); // Relasi dengan tabel users
+            $table->string('nama', 100);
+            $table->string('email', 100)->unique();
+            $table->enum('jabatan', ['kasir', 'staff', 'manajer']);
+            $table->string('no_hp', 20)->nullable();
+            $table->text('alamat')->nullable();
             $table->timestamps();
+
+            //fk constraint
+            $table->foreign('id_user')
+                ->references('id_user')->on('users')
+                ->onDelete('set null') // jika user dihapus, id_user di tabel ini akan diset null
+                ->onUpdate('cascade'); // jika id_user di tabel users diupdate, akan terupdate juga di sini
         });
     }
 
@@ -25,6 +34,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('karyawan');
+        Schema::table('karyawans', function (Blueprint $table) {
+            // Hapus foreign key constraint sebelum menghapus tabel
+            $table->dropForeign(['id_user']);
+        });
+        Schema::dropIfExists('karyawans');
     }
 };

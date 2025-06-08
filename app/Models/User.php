@@ -12,6 +12,7 @@ class User extends Authenticatable
 
     protected $table = 'users'; // eksplisit
     protected $primaryKey = 'id_user';
+    public $timestamps = true; //eksplisit
 
     protected $fillable = [
         'name',
@@ -50,6 +51,18 @@ class User extends Authenticatable
 
     public function pemesanan()
     {
-        return $this->hasMany(Pemesanan::class, 'user_id');
+        return $this->hasMany(Pemesanan::class, 'id_user');
+    }
+    public function pelanggan()
+    {
+        return $this->hasOne(Pelanggan::class, 'id_user');
+    }
+    public function karyawan()
+    {
+        return $this->hasOne(karyawan::class, 'id_user');
+    }
+    public function Admin()
+    {
+        return $this->hasOne(Admin::class, 'id_user');
     }
 }

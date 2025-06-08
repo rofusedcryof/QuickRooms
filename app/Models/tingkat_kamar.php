@@ -10,6 +10,7 @@ class tingkat_kamar extends Model
     use HasFactory;
 
     protected $primaryKey = 'id_tingkat_kamar';
+    public $timestamps = true;
     protected $fillable = [
         'nama_tingkat',
         'deskripsi',

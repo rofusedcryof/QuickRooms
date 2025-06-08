@@ -8,5 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class karyawan extends Model
 {
     use HasFactory;
+    protected $table = 'karyawans';
     protected $primaryKey = 'id_karyawan';
+    protected $keyType = 'int';
+    protected $fillable = [
+        'nama',
+        'email',
+        'no_hp',
+        'alamat',
+        'jabatan',
+        'id_user',
+    ];
+    public $incrementing = true;
+    public $timestamps = true;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }

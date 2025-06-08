@@ -14,12 +14,23 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
 
-    
+
 
     public function run(): void
     {
-        Admin::factory()->count(10)->create();
-        Karyawan::factory()->count(10)->create();
+
+        $this->call([
+            PelangganSeeder::class,
+            UserSeeder::class,
+            AdminSeeder::class,
+            KaryawanSeeder::class,
+            TipeKamarSeeder::class,
+            TingkatKamarSeeder::class,
+            PemesananSeeder::class,
+            PembayaranSeeder::class,
+        ]);
+        // Admin::factory()->count(10)->create();
+        // Karyawan::factory()->count(10)->create();
 
         // \App\Models\User::factory(10)->create();
 
