@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum ('status_pembayaran', ['Lunas', 'Belum Lunas'])->default('Belum Lunas');
             $table->timestamps();
 
-            $table->foreign('id_pesanan')->references('id_pesanan')->on('pesanans')->onDelete('cascade');
+            $table->foreign('id_pesanan')->references('id_pesanan')->on('pemesanans')->onDelete('cascade');
         });
     }
 
