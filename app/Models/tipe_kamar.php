@@ -10,6 +10,7 @@ class tipe_kamar extends Model
     use HasFactory;
 
     protected $primaryKey = 'id_tipe_kamar';
+    public $timestamps = true;
     protected $fillable = [
         'nama_tipe',
         'deskripsi',
