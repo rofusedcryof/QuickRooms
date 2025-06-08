@@ -13,7 +13,7 @@ class Pelanggan extends Model
     protected $fillable = [
         'nama',
         'email',
-        'telepon',
+        'no_hp',
         'alamat',
     ];
 
@@ -24,7 +24,7 @@ class Pelanggan extends Model
 
     protected $casts = [
         'email' => 'string',
-        'telepon' => 'string',
+        'no_hp' => 'string',
     ];
 
     public function pemesanans()
