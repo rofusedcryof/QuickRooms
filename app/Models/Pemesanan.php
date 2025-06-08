@@ -35,12 +35,12 @@ class Pemesanan extends Model
     //relasi dgn class tipe kamar
     public function tipeKamar()
     {
-        return $this->belongsTo(tingkat_kamar::class, 'id_tipe_kamar');
+        return $this->belongsTo(tipe_kamar::class, 'id_tipe_kamar');
     }
     //relasi dgn class tingkat kamar
     public function tingkatKamar()
     {
-        return $this->belongsTo(tipe_kamar::class, 'id_tingkat_kamar');
+        return $this->belongsTo(tingkat_kamar::class, 'id_tingkat_kamar');
     }
     //relasi dgn class pembayaran
     public function pembayaran()
