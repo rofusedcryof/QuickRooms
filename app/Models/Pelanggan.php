@@ -15,6 +15,7 @@ class Pelanggan extends Model
         'email',
         'no_hp',
         'alamat',
+        'id_user',
     ];
 
     protected $hidden = [
@@ -30,5 +31,10 @@ class Pelanggan extends Model
     public function pemesanans()
     {
         return $this->hasMany(Pemesanan::class, 'id_pelanggan');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
     }
 }

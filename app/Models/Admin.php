@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     protected $table = 'admins';
-
     protected $primaryKey = 'id_admin';
-
     public $incrementing = true;  // kalau id_admin auto increment
 
     // Jika primary key bertipe non-integer, misal string, set juga tipe key-nya
@@ -21,4 +19,9 @@ class Admin extends Model
 
     // field yg boleh diisi
     protected $fillable = ['nama', 'email'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }

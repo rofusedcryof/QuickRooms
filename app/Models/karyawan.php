@@ -17,7 +17,13 @@ class karyawan extends Model
         'no_hp',
         'alamat',
         'jabatan',
+        'id_user',
     ];
     public $incrementing = true;
     public $timestamps = true;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }
