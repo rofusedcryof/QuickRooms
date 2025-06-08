@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pelanggans', function (Blueprint $table) {
-            $table->id(); // id otomatis
+            $table->unsignedBigInteger('id_pelanggan', true); // true = auto-increment
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('telepon');
@@ -23,4 +23,3 @@ return new class extends Migration
         Schema::dropIfExists('pelanggans');
     }
 };
-
