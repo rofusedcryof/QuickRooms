@@ -33,12 +33,12 @@ class Pemesanan extends Model
         return $this->belongsTo(User::class, 'id_user');
     }
     //relasi dgn class tipe kamar
-    public function tipeKamar()
+    public function tipe_kamar()
     {
         return $this->belongsTo(tipe_kamar::class, 'id_tipe_kamar');
     }
     //relasi dgn class tingkat kamar
-    public function tingkatKamar()
+    public function tingkat_kamar()
     {
         return $this->belongsTo(tingkat_kamar::class, 'id_tingkat_kamar');
     }
