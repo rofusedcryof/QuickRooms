@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class karyawan extends Model
 {
     use HasFactory;
+    protected $table = 'karyawans';
     protected $primaryKey = 'id_karyawan';
-    public $timestamps = true;
+    protected $keyType = 'int';
     protected $fillable = [
         'nama',
         'email',
@@ -17,4 +18,6 @@ class karyawan extends Model
         'alamat',
         'jabatan',
     ];
+    public $incrementing = true;
+    public $timestamps = true;
 }
