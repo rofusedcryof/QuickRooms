@@ -1,10 +1,4 @@
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pusat Bantuan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+@extends('layouts.main')
     <style>
       .hero {
         background: linear-gradient(to bottom, #2b6cb0, #3182ce);
@@ -53,8 +47,8 @@
         text-decoration: underline;
       }
     </style>
-  </head>
-  <body>
+
+@section('container')
     <!-- Hero Section -->
     <div class="hero">
       <h2 class="fw-bold">Pusat Bantuan QuickRoom</h2>
@@ -80,7 +74,4 @@
         
       </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+@endsection

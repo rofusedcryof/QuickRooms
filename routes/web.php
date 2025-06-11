@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('home', [
         "title" => "Home",
         "image" => "logo2.png",
-        "nama" => "QuickRoom"
+        "name" => "QuickRoom"
     ]);
 });
 
@@ -31,13 +31,26 @@ Route::get('login', function () {
 });
 
 Route::get('bantuan', function () {
-    return view('PusatBantuan');
+    return view('PusatBantuan', [
+        'title' => "Bantuan",
+        'image' => 'logo.png',
+        'name' => 'QuickRoom'
+    ]);
+});
+Route::get('urusSendiri', function () {
+    return view('urusSendiri', [
+        "title" => "Urus Sendiri",
+        "image" => "logo.png",
+        'image1' => 'hehe.jpeg',
+        'name' => 'QuickRoom'
+
+    ]);
 });
 
 
 Route::get('about', function () {
     return view('about', [
-        "title" => "About",
+        "title" => "Tentang QuickRoom",
         "image" => "logo.png",
         "name" => "QuickRoom",
         "tagline" => "Solusi Mudah & Cepat Untuk Reservasi Hotel Anda",
@@ -52,3 +65,13 @@ Route::get('about', function () {
     ]);
 });
 
+Route::get('profil', function () {
+    return view('profil', [
+        "title" => "Profil",
+        "name" => "QuickRoom",
+        "image" => "logo.png",
+        "nama" => "Mikael",
+        'email' => 'mikael@gmail.com'
+
+    ]);
+});
