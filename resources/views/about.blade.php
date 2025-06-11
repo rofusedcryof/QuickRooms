@@ -98,18 +98,18 @@
 <body>
 
     <header>
-        <h1>QuickRoom</h1>
+        <h1>{{ $name }}</h1>
         <p>{{ $tagline }}</p>
     </header>
 
     <main>
         <div class="text-center">
-            <img src="img/logo.png" alt="QuickRoom" width="200" class="img-thumbnail rounded-circle">
+            <img src="img/{{ $image }}" alt="{{ $name }}" width="200" class="img-thumbnail rounded-circle">
         </div>
 
-        <h2>Apa itu QuickRoom?</h2>
+        <h2>{{ $name }}</h2>
         <p>
-            <strong>QuickRoom </strong> {{ $desSing}}
+            <strong>{{ $name }} </strong> {{ $desSing}}
         </p>
 
         <h2>Fitur Unggulan</h2>

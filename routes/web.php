@@ -15,7 +15,11 @@ use App\Http\Controllers\KamarController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        "title" => "Home",
+        "image" => "logo2.png",
+        "nama" => "QuickRoom"
+    ]);
 });
 
 Route::get('registrasi', function () {
@@ -26,9 +30,16 @@ Route::get('login', function () {
     return 'halaman login';
 });
 
+Route::get('bantuan', function () {
+    return view('PusatBantuan');
+});
+
+
 Route::get('about', function () {
     return view('about', [
         "title" => "About",
+        "image" => "logo.png",
+        "name" => "QuickRoom",
         "tagline" => "Solusi Mudah & Cepat Untuk Reservasi Hotel Anda",
         "desSing" => "adalah platform reservasi hotel berbasis web yang dirancang untuk memudahkan pengguna dalam mencari dan memesan kamar hotel secara cepat, aman, dan efisien.",
         "li1" => "Reservasi kamar real-time dengan konfirmasi instan",
