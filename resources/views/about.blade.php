@@ -98,8 +98,8 @@
 <body>
 
     <header>
-        <h1>Tentang QuickRoom</h1>
-        <p>Solusi Mudah & Cepat untuk Reservasi Kamar Hotel Anda</p>
+        <h1>QuickRoom</h1>
+        <p>{{ $tagline }}</p>
     </header>
 
     <main>
@@ -109,24 +109,20 @@
 
         <h2>Apa itu QuickRoom?</h2>
         <p>
-            <strong>QuickRoom</strong> adalah platform reservasi hotel berbasis web yang dirancang untuk memudahkan
-            pengguna dalam mencari dan memesan kamar hotel secara cepat, aman, dan efisien.
+            <strong>QuickRoom </strong> {{ $desSing}}
         </p>
 
         <h2>Fitur Unggulan</h2>
         <ul>
-            <li>Reservasi kamar real-time dengan konfirmasi instan</li>
-            <li>Filter hotel berdasarkan harga, lokasi, dan fasilitas</li>
-            <li>Sistem login untuk pelanggan, admin, dan karyawan</li>
-            <li>Manajemen data kamar, tingkat, dan pembayaran</li>
-            <li>Dashboard statistik pemesanan & laporan</li>
+            <li>{{ $li1 }}</li>
+            <li>{{ $li2 }}</li>
+            <li>{{ $li3 }}</li>
+            <li>{{ $li4 }}</li>
+            <li>{{ $li5 }}</li>
         </ul>
 
         <h2>Misi Kami</h2>
-        <p>
-            Mendorong digitalisasi layanan perhotelan lokal agar lebih kompetitif dan terjangkau.
-            QuickRoom percaya bahwa setiap orang berhak atas pengalaman reservasi hotel yang nyaman dan profesional.
-        </p>
+        <p>{{ $misiKami}}</p>
 
         <a href="#" class="cta-button">Kunjungi Platform</a>
     </main>

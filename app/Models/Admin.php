@@ -9,6 +9,7 @@ class Admin extends Model
 {
     protected $table = 'admins';
     protected $primaryKey = 'id_admin';
+    protected $password = 'password';
     public $incrementing = true;  // kalau id_admin auto increment
 
     // Jika primary key bertipe non-integer, misal string, set juga tipe key-nya

@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id('id_admin');
             $table->unsignedBigInteger('id_user')->unique()->nullable(); // Relasi dengan tabel users
             $table->string('nama', 100);
+            $table->string('password');
             $table->string('email', 100)->unique();
             $table->string('no_hp', 20)->nullable();
+            $table->string('password');
             $table->softDeletes(); // untuk menyimpan waktu penghapusan soft delete
             $table->timestamps();
 
