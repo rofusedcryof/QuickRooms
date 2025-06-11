@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KamarController;
+use App\Models\hotel;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,5 +74,11 @@ Route::get('profil', function () {
         "nama" => "Mikael",
         'email' => 'mikael@gmail.com'
 
+    ]);
+});
+Route::get('/hotel', function(){
+    return view('hotel', [
+        "title" => "Hotels",
+        "posts" => hotel::all()
     ]);
 });

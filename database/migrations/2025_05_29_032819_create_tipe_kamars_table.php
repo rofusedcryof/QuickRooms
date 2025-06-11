@@ -16,6 +16,9 @@ return new class extends Migration
             $table->decimal('harga', 12, 2); //harga kamar
             $table->text('fasilitas')->nullable(); //fasilitas kamar
             $table->string('foto')->nullable(); //file foto kamar
+            $table->unsignedBigInteger('id_hotel');
+
+            $table->foreign('id_hotel')->references('id_hotel')->on('hotels')->onDelete('cascade');
             $table->softDeletes(); //menyimpan waktu penghapusan soft delete
             $table->timestamps();
         });
