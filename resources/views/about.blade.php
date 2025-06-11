@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tentang QuickRoom</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+@extends('layouts.main')
     <style>
         * {
             margin: 0;
@@ -93,40 +84,35 @@
             }
         }
     </style>
-</head>
 
-<body>
+@section('container')
 
     <header>
-        <h1>Tentang QuickRoom</h1>
-        <p>Solusi Mudah & Cepat untuk Reservasi Kamar Hotel Anda</p>
+        <h1>{{ $name }}</h1>
+        <p>{{ $tagline }}</p>
     </header>
 
     <main>
         <div class="text-center">
-            <img src="img/logo.png" alt="QuickRoom" width="200" class="img-thumbnail rounded-circle">
+            <img src="img/{{ $image }}" alt="{{ $name }}" width="200" class="img-thumbnail rounded-circle">
         </div>
 
-        <h2>Apa itu QuickRoom?</h2>
+        <h2>{{ $name }}</h2>
         <p>
-            <strong>QuickRoom</strong> adalah platform reservasi hotel berbasis web yang dirancang untuk memudahkan
-            pengguna dalam mencari dan memesan kamar hotel secara cepat, aman, dan efisien.
+            <strong>{{ $name }} </strong> {{ $desSing}}
         </p>
 
         <h2>Fitur Unggulan</h2>
         <ul>
-            <li>Reservasi kamar real-time dengan konfirmasi instan</li>
-            <li>Filter hotel berdasarkan harga, lokasi, dan fasilitas</li>
-            <li>Sistem login untuk pelanggan, admin, dan karyawan</li>
-            <li>Manajemen data kamar, tingkat, dan pembayaran</li>
-            <li>Dashboard statistik pemesanan & laporan</li>
+            <li>{{ $li1 }}</li>
+            <li>{{ $li2 }}</li>
+            <li>{{ $li3 }}</li>
+            <li>{{ $li4 }}</li>
+            <li>{{ $li5 }}</li>
         </ul>
 
         <h2>Misi Kami</h2>
-        <p>
-            Mendorong digitalisasi layanan perhotelan lokal agar lebih kompetitif dan terjangkau.
-            QuickRoom percaya bahwa setiap orang berhak atas pengalaman reservasi hotel yang nyaman dan profesional.
-        </p>
+        <p>{{ $misiKami}}</p>
 
         <a href="#" class="cta-button">Kunjungi Platform</a>
     </main>
@@ -135,6 +121,4 @@
         &copy; 2025 QuickRoom. Seluruh hak cipta dilindungi.
     </footer>
 
-</body>
-
-</html>
+@endsection
