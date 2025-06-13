@@ -18,9 +18,12 @@ return new class extends Migration
                 ->references('id_tipe')
                 ->on('tipe_kamars')
                 ->onDelete('cascade');
+            $table->unsignedBigInteger('id_hotel');
+
+            $table->foreign('id_hotel')->references('id_hotel')->on('hotels')->onDelete('cascade');
+
             $table->softDeletes(); // Untuk menyimpan waktu penghapusan soft delete
             $table->timestamps();
-
         });
     }
 

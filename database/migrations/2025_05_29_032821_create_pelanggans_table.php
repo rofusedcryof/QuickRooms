@@ -9,19 +9,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pelanggans', function (Blueprint $table) {
-            $table->id('id_pelanggan');//auto increment
-            $table->unsignedBigInteger('id_user')->nullable(); // relasi dgn user
+            $table->id('id_pelanggan'); // PK
+            $table->unsignedBigInteger('id_user')->nullable();
             $table->string('nama', 100);
             $table->string('email', 100)->unique();
             $table->string('no_hp', 20)->unique();
             $table->text('alamat');
             $table->timestamps();
 
-            // Foreign key constraint
+            // Foreign key sesuai PK di users
             $table->foreign('id_user')
                 ->references('id_user')->on('users')
-                ->onDelete('set null') // jika user dihapus, id_user di tabel ini akan diset null
-                ->onUpdate('cascade'); // jika id_user di tabel users diupdate, akan terupdate juga di sini
+                ->onDelete('set null')->onUpdate('cascade'); 
         });
     }
 

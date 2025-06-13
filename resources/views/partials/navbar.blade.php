@@ -1,6 +1,6 @@
   <nav class="navbar navbar-expand-lg bg-biru-tua navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img src="img/{{ $image }}" alt="{{ $name }}" width="50" class="img-thumbnail rounded-circle">{{ $name }}</a>
+            <a class="navbar-brand" href="/"><img src="{{ asset('img/logo2.png') }}" alt="Logo" width="40" class="img-thumbnail rounded-circle">{{ $name }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -14,16 +14,16 @@
                             Bantuan
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item {{ $title === 'Pusat Bantuan' ? 'active' : '' }}" href="bantuan">Pusat Bantuan</a></li>
+                            <li><a class="dropdown-item {{ $title === 'Pusat Bantuan' ? 'active' : '' }}" href="/bantuan">Pusat Bantuan</a></li>
                             <li><a class="dropdown-item" href="#">Hubungi Kami</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item {{ $title === 'Urus Sendiri' ? 'active' : '' }}" href="urusSendiri">Urus Sendiri</a></li>
+                            <li><a class="dropdown-item {{ $title === 'Urus Sendiri' ? 'active' : '' }}" href="/urusSendiri">Urus Sendiri</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ $title === 'Profil' ? 'active' : '' }}" href="profil">Profil</a>
+                        <a class="nav-link {{ $title === 'Profil' ? 'active' : '' }}" href="/profil">Profil</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
