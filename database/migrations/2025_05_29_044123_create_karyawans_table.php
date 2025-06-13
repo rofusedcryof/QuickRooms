@@ -19,6 +19,10 @@ return new class extends Migration
             $table->enum('jabatan', ['kasir', 'staff', 'manajer']);
             $table->string('no_hp', 20)->nullable();
             $table->text('alamat')->nullable();
+            $table->unsignedBigInteger('id_hotel');
+
+            $table->foreign('id_hotel')->references('id_hotel')->on('hotels')->onDelete('cascade');
+
             $table->timestamps();
 
             //fk constraint
