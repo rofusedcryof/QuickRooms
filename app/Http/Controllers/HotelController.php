@@ -13,7 +13,7 @@ class HotelController extends Controller
             "title" => "Home",
             "image" => "logo2.png",
             "name" => "QuickRoom",
-            "daftar_hotel" => hotel::all() //daftrar_hotel berisi method all di kelas model hotel
+            "daftar_hotel" => hotel::all() //daftar_hotel berisi method all di kelas model hotel
         ]);
     }
 
