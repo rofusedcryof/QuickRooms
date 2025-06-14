@@ -26,4 +26,9 @@ class karyawan extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class, 'id_hotel');
+    }
 }
