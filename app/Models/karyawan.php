@@ -18,6 +18,7 @@ class karyawan extends Model
         'alamat',
         'jabatan',
         'id_user',
+        'id_hotel'
     ];
     public $incrementing = true;
     public $timestamps = true;
