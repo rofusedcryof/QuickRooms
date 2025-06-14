@@ -65,4 +65,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Admin::class, 'id_user');
     }
+
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class, 'id_hotel'); // sesuai PK hotel
+    }
 }

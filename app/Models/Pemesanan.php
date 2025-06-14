@@ -9,17 +9,17 @@ class Pemesanan extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_pemesanan';
+    protected $primaryKey = 'id_pesanan';
     protected $fillable = [
         'id_user',
         'id_pelanggan',
-        'id_tipe_kamar',
-        'id_tingkat_kamar',
+        'id_tipe',
+        'id_kamar',
         'tanggal_checkin',
         'tanggal_checkout',
         'jumlah_kamar',
         'total_harga',
-        'status_pemesanan',
+        'status',
     ];
 
     //relasi dgn class pelanggan

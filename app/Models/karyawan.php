@@ -18,6 +18,7 @@ class karyawan extends Model
         'alamat',
         'jabatan',
         'id_user',
+        'id_hotel'
     ];
     public $incrementing = true;
     public $timestamps = true;
@@ -25,5 +26,10 @@ class karyawan extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class, 'id_hotel');
     }
 }

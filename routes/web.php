@@ -21,13 +21,15 @@ use App\Http\Controllers\BantuanController;
 
 Route::get('home', [HotelController::class, 'index']);//jika mengakses URL home maka akan memanggil kelas HotelController dan menjalankan method index
 
-Route::get('home/{slug}', [HotelController::class, 'show']);
-
 Route::get('bantuan', [BantuanController::class, 'index']);
 
 Route::get('about', [AboutController::class, 'index']);
 
 Route::get('profil', [ProfilController::class, 'index']);
+
+Route::get('/home/{hotel:slug}', [HotelController::class, 'show']); 
+ 
+
 
 
 Route::get('registrasi', function () {

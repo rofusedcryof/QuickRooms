@@ -10,7 +10,8 @@ return new class extends Migration
     {
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->id('id_pelanggan'); // PK
-            $table->unsignedBigInteger('id_user')->nullable();
+            $table->unsignedBigInteger('id_hotel')->nullable();//FK
+            $table->unsignedBigInteger('id_user')->nullable();//FK
             $table->string('nama', 100);
             $table->string('email', 100)->unique();
             $table->string('no_hp', 20)->unique();
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->foreign('id_user')
                 ->references('id_user')->on('users')
                 ->onDelete('set null')->onUpdate('cascade'); 
+            $table->foreign('id_hotel')->references('id_hotel')->on('hotels')->onDelete('set null')->onUpdate('cascade');
         });
     }
 

@@ -17,11 +17,22 @@ class HotelController extends Controller
         ]);
     }
 
-    public function show($slug){
+    // public function show($id)
+    // {
+    //     return view('hotel', [
+    //         "title" => "Single Hotel",
+    //         "name" => "QuickRoom",
+    //         "hotel" => hotel::findOrFail($id) // findOrFail lebih aman
+    //     ]);
+    // }
+    public function show(hotel $hotel)
+    {
         return view('hotel', [
-        "title" => "Single Hotel",
-        "name" => "QuickRoom",
-        "hotel" => hotel::find($slug)
-    ]);
+            "title" => "Single Hotel",
+            "name" => "QuickRoom",
+            "hotel" => $hotel
+        ]);
     }
+
+
 }

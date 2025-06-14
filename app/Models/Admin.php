@@ -19,7 +19,7 @@ class Admin extends Model
     public $timestamps = true;
 
     // field yg boleh diisi
-    protected $fillable = ['nama', 'email'];
+    protected $fillable = ['id_user', 'nama', 'email', 'no_hp'];
 
     public function user()
     {
