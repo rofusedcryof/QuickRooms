@@ -7,6 +7,8 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BantuanController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,22 +23,26 @@ use App\Http\Controllers\BantuanController;
 
 Route::get('home', [HotelController::class, 'index']);//jika mengakses URL home maka akan memanggil kelas HotelController dan menjalankan method index
 
-Route::get('home/{slug}', [HotelController::class, 'show']);
-
 Route::get('bantuan', [BantuanController::class, 'index']);
 
 Route::get('about', [AboutController::class, 'index']);
 
 Route::get('profil', [ProfilController::class, 'index']);
 
+Route::get('/home/{hotel:slug}', [HotelController::class, 'show']); 
+ 
 
-Route::get('registrasi', function () {
-    return 'halaman registrasi';
-});
 
-Route::get('login', function () {
-    return 'halaman login';
-});
+
+Route::get('/register', [RegisterController::class, 'create'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/login', [LoginController::class, 'create'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);
+
+Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+
+
 
 
 

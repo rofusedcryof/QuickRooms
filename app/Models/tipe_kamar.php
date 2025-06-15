@@ -9,20 +9,23 @@ class tipe_kamar extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_tipe_kamar';
+    protected $primaryKey = 'id_tipe';
     public $timestamps = true;
-    protected $fillable = [
-        'nama_tipe',
-        'deskripsi',
-        'harga',
-        'kapasitas',
-        'fasilitas',
-        'foto',
-    ];
+    protected $fillable = ['jenis', 'deskripsi', 'kapasitas', 'harga', 'fasilitas', 'foto', 'id_hotel'];
 
     //relasi dgn class pemesanan
-    public function pemesanans()
+    public function pemesanan()
     {
         return $this->hasMany(Pemesanan::class, 'id_tipe_kamar');
+    }
+
+        public function hotel()
+    {
+        return $this->belongsTo(Hotel::class, 'id_hotel');
+    }
+  
+    public function tingkat_kamar()
+    {
+        return $this->hasMany(tingkat_kamar::class, 'id_tipe');
     }
 }

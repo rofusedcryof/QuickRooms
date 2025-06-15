@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pelanggan extends Model
 {
     protected $table = 'pelanggans';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_pelanggan';
     public $timestamps = true;
 
     protected $fillable = [
@@ -28,7 +28,7 @@ class Pelanggan extends Model
         'no_hp' => 'string',
     ];
 
-    public function pemesanans()
+    public function pemesanan()
     {
         return $this->hasMany(Pemesanan::class, 'id_pelanggan');
     }
@@ -36,5 +36,10 @@ class Pelanggan extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class, 'id_hotel');
     }
 }

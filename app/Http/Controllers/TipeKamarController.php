@@ -32,13 +32,13 @@ class TipeKamarController extends Controller
 
     public function show($id)
     {
-        $tipeKamar = TipeKamar::findOrFail($id);
+        $tipeKamar = tipe_kamar::findOrFail($id);
         return view('tipe_kamars.show', compact('tipeKamar'));
     }
 
     public function edit($id)
     {
-        $tipeKamar = TipeKamar::findOrFail($id);
+        $tipeKamar = tipe_kamar::findOrFail($id);
         return view('tipe_kamars.edit', compact('tipeKamar'));
     }
 
