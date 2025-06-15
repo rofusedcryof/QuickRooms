@@ -19,7 +19,7 @@ class tingkat_kamar extends Model
         'id_hotel'
     ];
     //relasi dgn class pemesanan
-    public function pemesanans()
+    public function pemesanan()
     {
         return $this->hasMany(Pemesanan::class, 'id_tingkat_kamar');
     }

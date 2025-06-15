@@ -18,17 +18,17 @@ class hotel extends Model
         return 'id_hotel';
     }
 
-    public function pelanggans()
+    public function pelanggan()
     {
         return $this->hasMany(Pelanggan::class, 'id_hotel');
     }
 
-    public function tipe_kamars()
+    public function tipe_kamar()
     {
         return $this->hasMany(tipe_kamar::class, 'id_hotel');
     }
 
-    public function karyawans()
+    public function karyawan()
     {
         return $this->hasMany(karyawan::class, 'id_hotel');
     }

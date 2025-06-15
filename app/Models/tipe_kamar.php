@@ -14,7 +14,7 @@ class tipe_kamar extends Model
     protected $fillable = ['jenis', 'deskripsi', 'kapasitas', 'harga', 'fasilitas', 'foto', 'id_hotel'];
 
     //relasi dgn class pemesanan
-    public function pemesanans()
+    public function pemesanan()
     {
         return $this->hasMany(Pemesanan::class, 'id_tipe_kamar');
     }
@@ -24,7 +24,7 @@ class tipe_kamar extends Model
         return $this->belongsTo(Hotel::class, 'id_hotel');
     }
   
-    public function tingkat_kamars()
+    public function tingkat_kamar()
     {
         return $this->hasMany(tingkat_kamar::class, 'id_tipe');
     }

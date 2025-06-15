@@ -28,7 +28,7 @@ class Pelanggan extends Model
         'no_hp' => 'string',
     ];
 
-    public function pemesanans()
+    public function pemesanan()
     {
         return $this->hasMany(Pemesanan::class, 'id_pelanggan');
     }
