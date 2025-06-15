@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #1b263b;
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,17 +18,19 @@
 
         .register-container {
             background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
             width: 100%;
             max-width: 400px;
+            text-align: left; 
         }
 
         .register-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
+            font-size: 24px; 
+            font-weight: bold;
             color: #333333;
+            margin-bottom: 20px;
         }
 
         .form-group {
