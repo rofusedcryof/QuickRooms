@@ -13,22 +13,24 @@ class TipeKamarSeeder extends Seeder
      */
     public function run(): void
     {
-        tipe_kamar::create([
-            'jenis' => 'Single',
-            'deskripsi' => 'Kamar untuk 1 orang, fasilitas standar',
-            'kapasitas' => 1,
-        ]);
+        //\App\Models\tipe_kamar::factory(10)->create();
 
-        tipe_kamar::create([
-            'jenis' => 'Double',
-            'deskripsi' => 'Kamar untuk 2 orang dengan 2 tempat tidur',
-            'kapasitas' => 2,
-        ]);
+        // tipe_kamar::create([
+        //     'jenis' => 'Single',
+        //     'deskripsi' => 'Kamar untuk 1 orang, fasilitas standar',
+        //     'kapasitas' => 1,
+        // ]);
 
-        tipe_kamar::create([
-            'jenis' => 'Suite',
-            'deskripsi' => 'Kamar mewah dengan ruang tamu terpisah',
-            'kapasitas' => 3,
-        ]);
+        // tipe_kamar::create([
+        //     'jenis' => 'Double',
+        //     'deskripsi' => 'Kamar untuk 2 orang dengan 2 tempat tidur',
+        //     'kapasitas' => 2,
+        // ]);
+
+        // tipe_kamar::create([
+        //     'jenis' => 'Suite',
+        //     'deskripsi' => 'Kamar mewah dengan ruang tamu terpisah',
+        //     'kapasitas' => 3,
+        // ]);
     }
 }

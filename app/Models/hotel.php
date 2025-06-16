@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class hotel extends Model
 {
+    use HasFactory;
     protected $table = 'hotels';
     protected $primaryKey = 'id_hotel';
 

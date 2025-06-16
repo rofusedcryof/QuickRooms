@@ -13,18 +13,20 @@ class PembayaranSeeder extends Seeder
      */
     public function run(): void
     {
-        Pembayaran::create([
-            'id_pesanan' => 1,
-            'metode_pembayaran' => 'Transfer Bank',
-            'jumlah_pembayaran' => 250000.00,
-            'status_pembayaran' => 'belum lunas',
-        ]);
+        //\App\Models\Pembayaran::factory(10)->create();
 
-        Pembayaran::create([
-            'id_pesanan' => 2,
-            'metode_pembayaran' => 'Kartu Kredit',
-            'jumlah_pembayaran' => 1000000.00,
-            'status_pembayaran' => 'lunas',
-        ]);
+        // Pembayaran::create([
+        //     'id_pesanan' => 1,
+        //     'metode_pembayaran' => 'Transfer Bank',
+        //     'jumlah_pembayaran' => 250000.00,
+        //     'status_pembayaran' => 'belum lunas',
+        // ]);
+
+        // Pembayaran::create([
+        //     'id_pesanan' => 2,
+        //     'metode_pembayaran' => 'Kartu Kredit',
+        //     'jumlah_pembayaran' => 1000000.00,
+        //     'status_pembayaran' => 'lunas',
+        // ]);
     }
 }

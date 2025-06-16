@@ -14,22 +14,34 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
+       // \App\Models\Admin::factory(10)->create();
+
+        // Admin::create([
+        //     'nama' => 'Mikael',
+        //     'email' => 'mikael@gmail.com',
+        //     'password' => '365289'
+        // ]);
+
+        // Admin::create([
+        //     'nama' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => 'admin_p4ss'
+        // ]);
+
+        // Admin::create([
+        //     'nama' => 'mik',
+        //     'email' => 'mik@gmail.com',
+        //     'password'=> 'pecinta_keju'
+        // ]);
+
+
         Admin::create([
-            'nama' => 'Mikael',
+            'id_user' => '1',
+            'nama' => 'mikael',
             'email' => 'mikael@gmail.com',
+            'no_hp' => '0857676267890',
             'password' => '365289'
         ]);
-
-        Admin::create([
-            'nama' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => 'admin_p4ss'
-        ]);
-
-        Admin::create([
-            'nama' => 'mik',
-            'email' => 'mik@gmail.com',
-            'password'=> 'pecinta_keju'
-        ]);
+            
     }
 }

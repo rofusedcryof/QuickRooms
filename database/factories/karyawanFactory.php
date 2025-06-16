@@ -9,17 +9,18 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class karyawanFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = \App\Models\Karyawan::class;
+
+    public function definition()
     {
-        return [
-            'nama' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
-            'jabatan' => $this->faker->randomElement(['kasir', 'staff']),
-        ];
+       return [
+        'id_user' => \App\Models\User::inRandomOrder()->first()->id_user,
+        'nama' => $this->faker->name,
+        'email' => $this->faker->unique()->email,
+        'jabatan' => $this->faker->randomElement(['kasir', 'staff', 'manajer']),
+        'no_hp' => $this->faker->phoneNumber,
+        'alamat' => $this->faker->address,
+        'id_hotel' => \App\Models\Hotel::inRandomOrder()->first()->id_hotel,
+    ];
     }
 }

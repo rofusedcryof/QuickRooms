@@ -13,16 +13,18 @@ class KaryawanSeeder extends Seeder
      */
     public function run(): void
     {
-        Karyawan::create([
-            'nama' => 'yin',
-            'email' => 'yin@gmail.com',
-            'jabatan' => 'kasir',
-        ]);
+       // \App\Models\karyawan::factory(10)->create();
 
-        Karyawan::create([
-            'nama' => 'yil',
-            'email' => 'til@gmail.com',
-            'jabatan' => 'staff',
-        ]);
+        // Karyawan::create([
+        //     'nama' => 'yin',
+        //     'email' => 'yin@gmail.com',
+        //     'jabatan' => 'kasir',
+        // ]);
+
+        // Karyawan::create([
+        //     'nama' => 'yil',
+        //     'email' => 'til@gmail.com',
+        //     'jabatan' => 'staff',
+        // ]);
     }
 }

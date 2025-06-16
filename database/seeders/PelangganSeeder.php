@@ -13,18 +13,20 @@ class PelangganSeeder extends Seeder
      */
     public function run(): void
     {
-        Pelanggan::create([
-            'nama' => 'el',
-            'email' => 'el@gmail.com',
-            'alamat' => 'Jl.Kehampaan, Gg.Kebencian',
-            'telepon' => '082542342311'
-        ]);
+        //\App\Models\Pelanggan::factory(10)->create();
 
-        Pelanggan::create([
-            'nama' => 'udin',
-            'email' => 'udhi@gmail.com',
-            'alamat' => 'Jl.Kehampaan, Gg.Kebencian',
-            'telepon' => '082542342318'
-        ]);
+        // Pelanggan::create([
+        //     'nama' => 'el',
+        //     'email' => 'el@gmail.com',
+        //     'alamat' => 'Jl.Kehampaan, Gg.Kebencian',
+        //     'telepon' => '082542342311'
+        // ]);
+
+        // Pelanggan::create([
+        //     'nama' => 'udin',
+        //     'email' => 'udhi@gmail.com',
+        //     'alamat' => 'Jl.Kehampaan, Gg.Kebencian',
+        //     'telepon' => '082542342318'
+        // ]);
     }
 }
