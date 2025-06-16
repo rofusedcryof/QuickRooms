@@ -30,6 +30,14 @@
                     <input class="form-control me-2" type="search" placeholder="Cari Hotel" aria-label="Search" />
                     <button class="btn btn-outline-success" type="submit">Cari</button>
                 </form>
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-primary me-2 {{ $title === 'Login' ? 'active' : '' }}" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success {{ $title === 'Sign Up' ? 'active' : '' }}" href="/register">Sign Up</a>
+                </li>
+            </ul>
             </div>
         </div>
     </nav>

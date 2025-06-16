@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #1b263b; 
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,17 +18,19 @@
 
         .login-container {
             background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
             width: 100%;
             max-width: 400px;
+            text-align: left; 
         }
 
         .login-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
+            font-size: 24px; 
+            font-weight: bold;
             color: #333333;
+            margin-bottom: 20px;
         }
 
         .form-group {
@@ -51,23 +53,24 @@
         }
 
         .form-group input:focus {
-            border-color: #007bff;
+            border-color: #4e73df; 
             outline: none;
         }
 
         .form-group button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #4e73df; 
             color: #ffffff;
             border: none;
-            border-radius: 4px;
+            border-radius: 10px; 
             font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .form-group button:hover {
-            background-color: #0056b3;
+            background-color: #2e59d9; 
         }
 
         .form-group .error {
