@@ -14,6 +14,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user')->nullable();//FK
             $table->string('nama', 100);
             $table->string('email', 100)->unique();
+            $table->string('password');
             $table->string('no_hp', 20)->unique();
             $table->text('alamat');
             $table->timestamps();

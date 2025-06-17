@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             HotelSeeder::class, 
             // PelangganSeeder::class,
             UserSeeder::class,
-            AdminSeeder::class,
+            //AdminSeeder::class,
             // KaryawanSeeder::class, 
             // TipeKamarSeeder::class,
             // TingkatKamarSeeder::class,
