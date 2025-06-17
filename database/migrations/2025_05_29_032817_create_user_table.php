@@ -15,8 +15,8 @@ return new class extends Migration
             $table->string('password');
             $table->enum('role', ['admin', 'karyawan', 'pelanggan'])->default('pelanggan');
             $table->string('no_hp')->nullable();
-            $table->text('alamat', ['kasir', 'staff', 'manajer'])->nullable();
-            $table->string('jabatan')->nullable(); // hanya digunakan oleh role 'karyawan'
+            $table->text('alamat')->nullable();
+            $table->enum('jabatan', ['kasir', 'staff', 'manajer'])->nullable(); // hanya digunakan oleh role 'karyawan'
             $table->unsignedBigInteger('id_hotel')->nullable();
 
             $table->foreign('id_hotel')->references('id_hotel')->on('hotels')->onDelete('set null');

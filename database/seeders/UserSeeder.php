@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
                 // User Admin
-        $adminUser = User::factory()->create([
+        $adminUser = User::create([
             'role' => 'admin',
             'nama' => 'mikael',
             'email' => 'mikael@gmail.com',
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
         ]);
 
         // User Karyawan
-        $karyawanUser = User::factory()->create([
+        $karyawanUser = User::create([
             'role' => 'karyawan',
             'nama' => 'mika',
             'email' => 'mika@gmail.com',
@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
         ]);
 
         // User Pelanggan
-        $pelangganUser = User::factory()->create([
+        $pelangganUser = User::create([
             'role' => 'pelanggan',
             'nama' => 'mik',
             'email' => 'mik@gmail.com',
