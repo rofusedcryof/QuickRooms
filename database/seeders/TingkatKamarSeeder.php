@@ -13,25 +13,27 @@ class TingkatKamarSeeder extends Seeder
      */
     public function run(): void
     {
-        tingkat_kamar::create([
-            'nomor_kamar' => '101',
-            'lantai' => 1,
-            'status' => 'reguler',
-            'id_tipe' => 1, // Single
-        ]);
+       // \App\Models\tingkat_kamar::factory(10)->create();
 
-        tingkat_kamar::create([
-            'nomor_kamar' => '102',
-            'lantai' => 1,
-            'status' => 'vip',
-            'id_tipe' => 2, // Double
-        ]);
+        // tingkat_kamar::create([
+        //     'nomor_kamar' => '101',
+        //     'lantai' => 1,
+        //     'status' => 'reguler',
+        //     'id_tipe' => 1, // Single
+        // ]);
 
-        tingkat_kamar::create([
-            'nomor_kamar' => '201',
-            'lantai' => 2,
-            'status' => 'vvip',
-            'id_tipe' => 3, // Suite
-        ]);
+        // tingkat_kamar::create([
+        //     'nomor_kamar' => '102',
+        //     'lantai' => 1,
+        //     'status' => 'vip',
+        //     'id_tipe' => 2, // Double
+        // ]);
+
+        // tingkat_kamar::create([
+        //     'nomor_kamar' => '201',
+        //     'lantai' => 2,
+        //     'status' => 'vvip',
+        //     'id_tipe' => 3, // Suite
+        // ]);
     }
 }

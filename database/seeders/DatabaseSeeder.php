@@ -10,25 +10,24 @@ use App\Models\Karyawan;
 class DatabaseSeeder extends Seeder
 
 {
-    /**
-     * Seed the application's database.
-     */
-
-
-
     public function run(): void
     {
 
         $this->call([
-            PelangganSeeder::class,
+            HotelSeeder::class, 
+            // PelangganSeeder::class,
             UserSeeder::class,
             AdminSeeder::class,
-            KaryawanSeeder::class,
-            TipeKamarSeeder::class,
-            TingkatKamarSeeder::class,
-            PemesananSeeder::class,
-            PembayaranSeeder::class,
+            // KaryawanSeeder::class, 
+            // TipeKamarSeeder::class,
+            // TingkatKamarSeeder::class,
+            // PemesananSeeder::class,
+            // PembayaranSeeder::class,
         ]);
+
+
+
+
         // Admin::factory()->count(10)->create();
         // Karyawan::factory()->count(10)->create();
 

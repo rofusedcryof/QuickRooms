@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Admin extends Model
 {
+    use HasFactory;
     protected $table = 'admins';
     protected $primaryKey = 'id_admin';
     protected $password = 'password';
@@ -19,7 +21,8 @@ class Admin extends Model
     public $timestamps = true;
 
     // field yg boleh diisi
-    protected $fillable = ['id_user', 'nama', 'email', 'no_hp'];
+    protected $fillable = ['id_user', 'nama', 'email', 'no_hp', 'password'];
+
 
     public function user()
     {
