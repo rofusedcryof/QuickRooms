@@ -15,10 +15,21 @@
             align-items: center;
             height: 100vh;
         }
+        .oke{
+            width: 50%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
 
         .register-container {
             background-color: #ffffff;
-            padding: 30px; 
+            padding: 40px; 
             border-radius: 15px; 
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
             width: 100%;
@@ -46,7 +57,7 @@
 
         .form-group input {
             width: 100%;
-            padding: 10px;
+            padding: 5px;
             border: 1px solid #cccccc;
             border-radius: 4px;
             font-size: 14px;
@@ -58,7 +69,7 @@
         }
 
         .form-group button {
-            width: 100%;
+            width: 50%;
             padding: 10px;
             background-color: #007bff;
             color: #ffffff;
@@ -66,6 +77,7 @@
             border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
+            text-align: left;
         }
 
         .form-group button:hover {
@@ -75,12 +87,12 @@
         .form-group .error {
             color: red;
             font-size: 12px;
-        }
-    </style>
+        }</style>
+
 </head>
 <body>
     <div class="register-container">
-        <h1>Registrasi</h1>
+        <h1>REGISTRASI</h1>
         <form action="{{ route('register') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -116,8 +128,8 @@
                 <label for="no_hp">Nomor HP</label>
                 <input type="text" name="no_hp" id="no_hp">
             </div>
-            <div class="form-group">
-                <button type="submit">Daftar</button>
+            <div class="oke">
+                <button type="submit" class="oke">DAFTAR</button>
             </div>
         </form>
     </div>
