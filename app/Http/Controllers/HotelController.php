@@ -9,11 +9,18 @@ class HotelController extends Controller
 {
     public function index()
     {
+        $home =hotel::latest();
+
+        if(request('search')){
+            $home->where('nama_hotel', 'like', '%' . request('search') . '%')
+                ->orWhere('alamat_hotel', 'like', '%' . request('search') . '%');
+        }
+
         return view('home', [
-            "title" => "Home",
+            "title" => "Daftar Hotel",
             "image" => "logo2.png",
             "name" => "QuickRoom",
-            "daftar_hotel" => hotel::all() //daftar_hotel berisi method all di kelas model hotel
+            "daftar_hotel" => $home->get()
         ]);
     }
 
