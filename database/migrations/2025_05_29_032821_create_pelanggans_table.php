@@ -12,11 +12,6 @@ return new class extends Migration
             $table->id('id_pelanggan'); // PK
             $table->unsignedBigInteger('id_hotel')->nullable();//FK
             $table->unsignedBigInteger('id_user')->nullable();//FK
-            $table->string('nama', 100);
-            $table->string('email', 100)->unique();
-            $table->string('password');
-            $table->string('no_hp', 20)->unique();
-            $table->text('alamat');
             $table->timestamps();
 
             // Foreign key sesuai PK di users
