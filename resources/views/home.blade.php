@@ -4,7 +4,6 @@
 
 <h1 class="mb-5">{{ $title }}</h1>
 
-
 @if ($daftar_hotel->count())
 
 <div class="row">
