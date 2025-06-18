@@ -23,7 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/dashboard')->with('success', 'Login berhasil.');
+            return redirect()->intended('/home')->with('success', 'Login berhasil.');
         }
 
         return back()->withErrors([
