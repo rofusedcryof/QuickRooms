@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BantuanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PemesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,8 @@ Route::post('login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 
-
+Route::get('/pemesanan', [PemesananController::class, 'create'])->name('pemesanan.create');
+Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
 
 
 Route::get('urusSendiri', function () {
