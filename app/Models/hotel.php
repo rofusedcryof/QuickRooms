@@ -32,9 +32,9 @@ class hotel extends Model
         return $this->hasMany(Pelanggan::class, 'id_hotel');
     }
 
-    public function tipe_kamar()
+    public function tipeKamar()
     {
-        return $this->hasMany(tipe_kamar::class, 'id_hotel');
+        return $this->hasMany(TipeKamar::class, 'id_hotel');
     }
 
     public function karyawan()
