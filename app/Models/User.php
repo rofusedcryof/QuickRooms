@@ -2,28 +2,33 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
-    use HasApiTokens, Notifiable, HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = 'users'; // eksplisit
+
+    protected $table = 'users';
+
+
     protected $primaryKey = 'id_user';
-    public $timestamps = true; //eksplisit
+
+
+    public $timestamps = true;
+
 
     protected $fillable = [
-        'name',
+        'nama',                 // <-- DIUBAH dari 'name'
         'email',
         'password',
         'role',
         'alamat',
-        'no_telp',
+        'no_hp',                // <-- DIUBAH dari 'no_telp'
+        'id_hotel',             // <-- DITAMBAHKAN
     ];
 
     protected $hidden = [
@@ -31,6 +36,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
@@ -51,18 +57,22 @@ class User extends Authenticatable
         return $this->role === 'pelanggan';
     }
 
+
     public function pemesanan()
     {
         return $this->hasMany(Pemesanan::class, 'id_user');
     }
+
     public function pelanggan()
     {
         return $this->hasOne(Pelanggan::class, 'id_user');
     }
+
     public function karyawan()
     {
         return $this->hasOne(karyawan::class, 'id_user');
     }
+
     public function Admin()
     {
         return $this->hasOne(Admin::class, 'id_user');
@@ -70,6 +80,6 @@ class User extends Authenticatable
 
     public function hotel()
     {
-        return $this->belongsTo(Hotel::class, 'id_hotel'); // sesuai PK hotel
+        return $this->belongsTo(Hotel::class, 'id_hotel');
     }
 }
