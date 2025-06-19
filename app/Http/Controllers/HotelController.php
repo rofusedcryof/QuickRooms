@@ -16,7 +16,7 @@ class HotelController extends Controller
             "title" => "Daftar Hotel",
             "image" => "logo2.png",
             "name" => "QuickRoom",
-            "daftar_hotel" => hotel::latest()->filter(request(['search']))->get()
+            "daftar_hotel" => hotel::latest()->filter(request(['search']))->paginate(10)
         ]);
     }
 

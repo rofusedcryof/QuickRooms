@@ -15,7 +15,7 @@ class HotelSeeder extends Seeder
      */
     public function run(): void
     {
-        hotel::factory(10)->create();
+        hotel::factory(50)->create();
 
         tipe_kamar::create([
             'jenis' => 'single',
