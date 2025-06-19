@@ -77,9 +77,12 @@ Route::middleware(['auth', 'is.admin'])
     ->group(function () {
 
     //rute Dasboard Admin
-    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
-
     Route::get('/hotels', [AdminHotelController::class, 'index'])->name('hotels.index');
+    Route::get('/hotels/create', [AdminHotelController::class, 'create'])->name('hotels.create');
+    Route::post('/hotels', [AdminHotelController::class, 'store'])->name('hotels.store');
+    Route::get('/hotels/{id}/edit', [AdminHotelController::class, 'edit'])->name('hotels.edit');
+    Route::put('/hotels/{id}', [AdminHotelController::class, 'update'])->name('hotels.update');
+    Route::delete('/hotels/{id}', [AdminHotelController::class, 'destroy'])->name('hotels.destroy');
 });
 
 

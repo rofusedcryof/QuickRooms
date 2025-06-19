@@ -46,4 +46,9 @@ class Pemesanan extends Model
     {
         return $this->hasOne(Pembayaran::class, 'id_pemesanan');
     }
+    //relasi dgn class hotel
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class, 'id_hotel');
+    }
 }

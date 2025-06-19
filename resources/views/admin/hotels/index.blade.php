@@ -11,38 +11,95 @@
         </div>
     </div>
 
-    <div class="card shadow-sm">
-        <div class="card-header d-flex justify-content-beetween align-items-center">
+    <div class="card shadow-sm mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
             Daftar hotel
-            <a href="#" class="btn btn-primary btn-sm">Tambah Hotel Baru</a>
+            <a href="{{ route('admin.hotels.create') }}" class="btn btn-primary btn-sm">Tambah Hotel Baru</a>
         </div>
         <div class="card-body">
-            <table class="table table-hover">
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+            <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nama Hotel</th>
-                        <th scope="col">Lokasi</th>
-                        <th scope="col">Action</th>
+                        <th>Nama Hotel</th>
+                        <th>Alamat</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
                     @foreach($hotels as $hotel)
-                    <tr>
-                        <th scope="row">{{  $loop->iteration }}</th>
-                        <td>{{ $hotel->nama_hotel }}</td>
-                        <td>{{ $hotel->lokasi }}</td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm">Detail</a>
-                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ $hotel->nama_hotel }}</td>
+                            <td>{{ $hotel->alamat_hotel }}</td>
+                            <td>
+                                <a href="{{ route('admin.hotels.edit', $hotel->id_hotel) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ route('admin.hotels.destroy', $hotel->id_hotel) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus hotel ini?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger btn-sm" type="submit">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-</div
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header">
+            Daftar Pengguna
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->nama }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->role }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            Daftar Pemesanan
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nama Pemesan</th>
+                        <th>Hotel</th>
+                        <th>Tanggal Check-in</th>
+                        <th>Tanggal Check-out</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($pemesanans as $pemesanan)
+                        <tr>
+                            <td>{{ $pemesanan->user->nama ?? '-' }}</td>
+                            <td>{{ $pemesanan->hotel->nama ?? '-' }}</td>
+                            <td>{{ $pemesanan->check_in }}</td>
+                            <td>{{ $pemesanan->check_out }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 @endsection
