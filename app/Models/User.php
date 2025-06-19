@@ -22,13 +22,12 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'nama',                 // <-- DIUBAH dari 'name'
+        'nama',
         'email',
         'password',
         'role',
+        'no_hp',
         'alamat',
-        'no_hp',                // <-- DIUBAH dari 'no_telp'
-        'id_hotel',             // <-- DITAMBAHKAN
     ];
 
     protected $hidden = [

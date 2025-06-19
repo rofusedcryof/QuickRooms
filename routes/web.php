@@ -30,7 +30,7 @@ Route::get('bantuan', [BantuanController::class, 'index']);
 
 Route::get('about', [AboutController::class, 'index']);
 
-Route::get('profil', [ProfilController::class, 'index']);
+Route::middleware('auth')->get('/profil', [ProfilController::class, 'index'])->name('profil');
 
 Route::get('/home/{hotel:slug}', [HotelController::class, 'show'])->name('hotel.show'); 
  
@@ -38,7 +38,7 @@ Route::get('/home/{hotel:slug}', [HotelController::class, 'show'])->name('hotel.
 
 
 Route::get('/register', [RegisterController::class, 'create'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
@@ -59,9 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy'])->name('pemesanan.destroy');
 });
 
-
-Route::get('/pemesanan', [PemesananController::class, 'create'])->name('pemesanan.create');
-Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
+Route::middleware('auth')->get('/profil', [ProfilController::class, 'index'])->name('profil');
 
 
 Route::get('/urusSendiri', function () {
