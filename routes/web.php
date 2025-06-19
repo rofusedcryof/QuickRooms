@@ -10,6 +10,8 @@ use App\Http\Controllers\BantuanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminHotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,13 +64,22 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->get('/profil', [ProfilController::class, 'index'])->name('profil');
 
 
-Route::get('/urusSendiri', function () {
-    return view('Dasbor/urusSendiri', [
-        "title" => "Urus Sendiri",
-        'image1' => 'hehe.jpeg',
-        'name' => 'QuickRoom'
+// Route::get('/urusSendiri', function () {
+//     return view('Dasbor/urusSendiri', [
+//         "title" => "Urus Sendiri",
+//         'image1' => 'hehe.jpeg',
+//         'name' => 'QuickRoom'
 
-    ]);
+//     ]);
+Route::middleware(['auth', 'is.admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+    //rute Dasboard Admin
+    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
+
+    Route::get('/hotels', [AdminHotelController::class, 'index'])->name('hotels.index');
 });
 
 
