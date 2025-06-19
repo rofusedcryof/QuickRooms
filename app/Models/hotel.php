@@ -11,8 +11,16 @@ class hotel extends Model
     use HasFactory;
     protected $table = 'hotels';
     protected $primaryKey = 'id_hotel';
-
     protected $fillable = ['slug', 'gambar', 'nama_hotel', 'alamat_hotel', 'excerpt', 'body', 'harga'];
+
+    public function scopeFilter($query , array $filters)
+    {
+
+        $query->when($filters['search'] ?? false, function($query, $search){
+            return $query->where('nama_hotel', 'like', '%' . $search . '%')
+                ->orWhere('alamat_hotel', 'like', '%' . $search . '%');
+        });
+    }
 
     public function getRouteKeyName()
     {

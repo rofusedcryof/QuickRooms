@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="card mb-4 shadow">
-        <img src="{{ asset('storage/'.$hotel->gambar) }}" class="card-img-top" alt="{{ $hotel->nama_hotel }}" style="height: 400px; object-fit: cover;">
+        <img src="{{ asset('img/' . $hotel->gambar) }}" class="card-img-top" alt="{{ $hotel->nama_hotel }}" style="height: 400px; object-fit: cover;">
 
         <div class="card-body">
             <h2 class="card-title">{{ $hotel->nama_hotel }}</h2>

@@ -13,10 +13,13 @@ class PemesananController extends Controller
         return view('pemesanan.index', compact('pemesanan')); 
     }
 
-    public function create()
-    {
-        return view('pemesanan.create');
-    }
+   public function create()
+{
+    return view('pemesanan', [
+        'title' => 'Form Pemesanan',
+        'name' => 'Nama Pengguna' // Ganti sesuai kebutuhan
+    ]);
+}
 
     public function store(Request $request)
     {

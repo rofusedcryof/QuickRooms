@@ -10,7 +10,7 @@
     @foreach($daftar_hotel as $hotel)
     <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm">
-            <img src="{{ asset('storage/'.$hotel->gambar) }}" class="card-img-top" alt="{{ $hotel->nama_hotel }}" style="height: 200px; object-fit: cover;">
+            <img src="{{ asset('img/' . $hotel->gambar) }}" class="card-img-top" alt="{{ $hotel->nama_hotel }}" style="height: 200px; object-fit: cover;">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">{{ $hotel->nama_hotel }}</h5>
                 <p class="card-subtitle mb-2 text-muted">{{ $hotel->alamat_hotel }}</p>
@@ -25,4 +25,9 @@
 @else
 <p class="text-center fs-4">Hotel Tidak Ditemukan</p>
 @endif
+
+<div class="d-flex justify-content-end">
+    {{ $daftar_hotel->links() }}
+</div>
+
 @endsection
