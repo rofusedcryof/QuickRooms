@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -11,28 +10,36 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view('registrasi.index'); // View untuk form register
+        return view('registrasi.index', [
+            'title' => 'Register',
+        ]);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        // Validasi data input
+        $validated = $request->validate([
             'nama' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'alamat' => 'nullable|string',
-            'no_hp' => 'nullable|string|max:15',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6|confirmed',
+            'no_hp' => 'required|string|max:15',
+            'alamat' => 'required|string|max:255',
         ]);
 
-        User::create([
-            'nama' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password), // Hash password
-            'role' => 'pelanggan', // Default role untuk pelanggan
-            'alamat' => $request->alamat,
-            'no_hp' => $request->no_hp,
+        // Simpan data ke tabel `users`
+        $user = User::create([
+            'nama' => $validated['nama'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+            'role' => 'pelanggan', // Set default role sebagai pelanggan
+            'no_hp' => $validated['no_hp'],
+            'alamat' => $validated['alamat'],
         ]);
 
-        return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login.');
+        // Login otomatis setelah registrasi
+        auth()->login($user);
+
+        // Redirect ke halaman home atau dashboard pelanggan
+        return redirect('/home')->with('success', 'Registrasi berhasil. Selamat datang!');
     }
 }
