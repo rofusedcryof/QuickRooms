@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\tingkat_kamar;
+use App\Models\TingkatKamar;
 
 class KamarController extends Controller
 {
@@ -12,7 +12,7 @@ class KamarController extends Controller
      */
     public function index()
     {
-        return tingkat_kamar::with('tipe')->get();
+        return TingkatKamar::with('tipe')->get();
     }
 
     /**

@@ -31,10 +31,23 @@
         <div class="mb-3">
             <label for="tipe_kamar" class="form-label">Tipe Kamar</label>
             <select class="form-select" id="tipe_kamar" name="tipe_kamar" required>
-                <option value="">-- Pilih Tipe Kamar --</option>
-                <option value="single">Single</option>
-                <option value="double">Double</option>
-                <option value="suite">Suite</option>
+                <option value=""></option>
+                @foreach ($tipe_kamars as $tipe)
+                <option value="{{ $tipe->id_tipe }}">{{ $tipe->jenis }} - {{ $tipe->harga }} (Kapasitas: {{ $tipe->kapasitas }})</option>
+                @endforeach
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="tingkat_kamar" class="form-label">Nomor Kamar</label>
+            <select class="form-select" id="tingkat_kamar" name="id_tingkat_kamar" required>
+                <option value="">-- Pilih Nomor Kamar --</option>
+                @foreach ($tingkat_kamars as $tingkat)
+                <option value="{{ $tingkat->id_tingkat }}">
+                    {{ $tingkat->nomor_kamar }} (Lantai {{ $tingkat->lantai }}, Status: {{ $tingkat->status }})
+                </option>
+                @endforeach
             </select>
         </div>
 

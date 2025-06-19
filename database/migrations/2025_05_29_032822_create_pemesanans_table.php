@@ -29,6 +29,8 @@ return new class extends Migration
             $table->foreign('id_kamar')
                 ->references('id_kamar')->on('tingkat_kamars')
                 ->onDelete('restrict');
+
+            $table->foreignId('id_tipe')->constrained('tipe_kamars', 'id_tipe');
         });
     }
 

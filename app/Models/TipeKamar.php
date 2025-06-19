@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tipe_kamar extends Model
+class TipeKamar extends Model
 {
     use HasFactory;
 
@@ -26,6 +26,6 @@ class tipe_kamar extends Model
   
     public function tingkat_kamar()
     {
-        return $this->hasMany(tingkat_kamar::class, 'id_tipe');
+        return $this->hasMany(TingkatKamar::class, 'id_tipe');
     }
 }

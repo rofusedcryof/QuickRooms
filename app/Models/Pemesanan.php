@@ -16,7 +16,7 @@ class Pemesanan extends Model
         'email',
         'check_in',
         'check_out',
-        'tipe_kamar',
+        'id_tipe_kamar',
         'jumlah_kamar',
         'catatan',
     ];
@@ -34,12 +34,12 @@ class Pemesanan extends Model
     //relasi dgn class tipe kamar
     public function tipe_kamar()
     {
-        return $this->belongsTo(tipe_kamar::class, 'id_tipe_kamar');
+        return $this->belongsTo(TipeKamar::class, 'id_tipe_kamar');
     }
     //relasi dgn class tingkat kamar
     public function tingkat_kamar()
     {
-        return $this->belongsTo(tingkat_kamar::class, 'id_tingkat_kamar');
+        return $this->belongsTo(TingkatKamar::class, 'id_tingkat_kamar');
     }
     //relasi dgn class pembayaran
     public function pembayaran()

@@ -16,8 +16,8 @@ class pemesananFactory extends Factory
         return [
             'id_user' => \App\Models\User::factory(), // bikin User dahulu
             'id_pelanggan' => \App\Models\Pelanggan::factory(), // bikin Pelanggan dahulu
-            'id_tipe' => \App\Models\Tipe_Kamar::factory(), // bikin Tipe dahulu
-            'id_kamar' => \App\Models\Tingkat_Kamar::factory(), // bikin Kamar dahulu
+            'id_tipe' => \App\Models\TipeKamar::factory(), // bikin Tipe dahulu
+            'id_kamar' => \App\Models\TingkatKamar::factory(), // bikin Kamar dahulu
             'tanggal_checkin' => $this->faker->date,
             'tanggal_checkout' => $this->faker->date,
             'jumlah_kamar' => $this->faker->numberBetween(1, 5),
