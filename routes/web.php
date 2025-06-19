@@ -22,7 +22,9 @@ use App\Http\Controllers\PemesananController;
 |
 */
 
-Route::get('home', [HotelController::class, 'index']);//jika mengakses URL home maka akan memanggil kelas HotelController dan menjalankan method index
+Route::get('Dasbor/home', [HotelController::class, 'index'])-> name ('home');//jika mengakses URL home maka akan memanggil kelas HotelController dan menjalankan method index
+Route::get('/home', [LoginController::class, 'index'])->middleware('auth')->name('home');
+
 
 Route::get('bantuan', [BantuanController::class, 'index']);
 
@@ -30,7 +32,7 @@ Route::get('about', [AboutController::class, 'index']);
 
 Route::get('profil', [ProfilController::class, 'index']);
 
-Route::get('/home/{hotel:slug}', [HotelController::class, 'show']); 
+Route::get('/home/{hotel:slug}', [HotelController::class, 'show'])->name('hotel.show'); 
  
 
 
@@ -41,15 +43,29 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
 
-Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+
+
+Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan.index');
+    Route::get('/pemesanan/create', [PemesananController::class, 'create'])->name('pemesanan.create');
+    Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
+    Route::get('/pemesanan/{id}', [PemesananController::class, 'show'])->name('pemesanan.show');
+    Route::get('/pemesanan/{id}/edit', [PemesananController::class, 'edit'])->name('pemesanan.edit');
+    Route::put('/pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
+    Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy'])->name('pemesanan.destroy');
+});
 
 
 Route::get('/pemesanan', [PemesananController::class, 'create'])->name('pemesanan.create');
 Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
 
 
-Route::get('urusSendiri', function () {
-    return view('urusSendiri', [
+Route::get('/urusSendiri', function () {
+    return view('Dasbor/urusSendiri', [
         "title" => "Urus Sendiri",
         'image1' => 'hehe.jpeg',
         'name' => 'QuickRoom'

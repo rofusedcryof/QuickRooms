@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Hotel;
 
 class LoginController extends Controller
 {
@@ -38,6 +39,18 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('success', 'Logout berhasil.');
+        return redirect('Dasbor/home')->with('success', 'Logout berhasil.');
+    }
+
+    public function index()
+    {
+        $user = Auth::user(); // Mendapatkan pengguna yang sedang login
+        $daftar_hotel = Hotel::paginate(10);
+
+        return view('Dasbor_pelanggan.home', [
+            'title' => 'Home',
+            'daftar_hotel' => $daftar_hotel,
+            'user' => $user,
+        ]);
     }
 }

@@ -1,54 +1,136 @@
-<nav class="navbar">
-  <div class="navbar-left">
-    <img src="{{ asset('img/logo2.png') }}" alt="Logo" class="logo" class="img-thumbnail rounded-circle" />
-    <span class="brand-text">QuickRoom</span>
-  </div>
+<nav class="navbar navbar-expand-lg bg-biru-tua navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/home">
+                <img src="{{ asset('img/logo2.png') }}" alt="Logo" width="40" class="img-thumbnail rounded-circle">
+                {{ Auth::check() ? Auth::user()->nama : 'QuickRooms' }}
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {{ $title === 'Tentang QuickRoom' ? 'active' : '' }}"  href="/about">Tentang QuickRoom</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bantuan
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item {{ $title === 'Pusat Bantuan' ? 'active' : '' }}" href="/bantuan">Pusat Bantuan</a></li>
+                            <li><a class="dropdown-item" href="#">Hubungi Kami</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item {{ $title === 'Urus Sendiri' ? 'active' : '' }}" href="/urusSendiri">Urus Sendiri</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ $title === 'Profil' ? 'active' : '' }}" href="/profil">Profil</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" action="/home">
+                    <input class="form-control me-2" type="text" placeholder="Cari Hotel" name="search" value="{{request('search')}}"/>
+                    <button class="btn btn-outline-success" type="submit">Cari</button>
+                </form>
+                <ul class="navbar-nav">
+                @guest
+                    <!-- Tampilkan jika pengguna belum login -->
+                    <li class="nav-item">
+                        <a class="btn btn-primary me-2 {{ $title === 'Login' ? 'active' : '' }}" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary {{ $title === 'Register' ? 'active' : '' }}" href="/register">Sign Up</a>
+                    </li>
+                @endguest
 
-  <ul class="navbar-menu">
-    <li><a href="/">Beranda</a></li>
-    <li><a href="/tentang">Tentang</a></li>
-    <li><a href="/bantuan">Bantuan</a></li>
-  </ul>
+                @auth
+                    <!-- Tampilkan jika pengguna sudah login -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->nama }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/profil">Profil</a></li>
+                            <li>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endauth
+            </ul>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Search dipindah ke kanan -->
-  <form action="/search" method="GET" class="navbar-search">
-  <input type="search" name="q" placeholder="Cari kamar..." />
-  <button type="submit" aria-label="Cari">🔍</button>
-</form>
-
-
-  <div class="navbar-auth">
-    <a href="/login" class="btn-login">Login</a>
-    <a href="/register" class="btn-register">Sign Up</a>
-  </div>
-</nav>
-
-
-<style>
-  .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #0d1b2a;
-  padding: 10px 30px;
-  height: 70px;
-  font-family: Arial, sans-serif;
-  gap: 20px;
-  flex-wrap: wrap;
+    <style>
+.navbar {
+    background-color: #1e293b;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* jarak antara logo dan teks QuickRoom */
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.navbar-left .logo {
-  height: 45px;
-  width: 45px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid white;
+.navbar-brand img {
+    height: 45px; /* pastikan ukuran logo proporsional */
+    width: 55px;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0 20px;
+    padding: 0;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+    color: #38bdf8;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* jarak antar elemen kanan termasuk login & signup lebih rapat */
+}
+
+.navbar-right input[type="text"] {
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+.navbar-right .btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+
 }
 
 .navbar-left .brand-text {
