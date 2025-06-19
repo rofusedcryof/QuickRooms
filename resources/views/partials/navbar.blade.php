@@ -1,6 +1,9 @@
-  <nav class="navbar navbar-expand-lg bg-biru-tua navbar-dark">
+<nav class="navbar navbar-expand-lg bg-biru-tua navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/home"><img src="{{ asset('img/logo2.png') }}" alt="Logo" width="40" class="img-thumbnail rounded-circle">{{ $name }}</a>
+            <a class="navbar-brand" href="/home">
+                <img src="{{ asset('img/logo2.png') }}" alt="Logo" width="40" class="img-thumbnail rounded-circle">
+                {{ Auth::check() ? Auth::user()->nama : 'QuickRooms' }}
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,12 +34,33 @@
                     <button class="btn btn-outline-success" type="submit">Cari</button>
                 </form>
                 <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="btn btn-primary me-2 {{ $title === 'Login' ? 'active' : '' }}" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-success {{ $title === 'Sign Up' ? 'active' : '' }}" href="/register">Sign Up</a>
-                </li>
+                @guest
+                    <!-- Tampilkan jika pengguna belum login -->
+                    <li class="nav-item">
+                        <a class="btn btn-primary me-2 {{ $title === 'Login' ? 'active' : '' }}" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary {{ $title === 'Register' ? 'active' : '' }}" href="/register">Sign Up</a>
+                    </li>
+                @endguest
+
+                @auth
+                    <!-- Tampilkan jika pengguna sudah login -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->nama }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/profil">Profil</a></li>
+                            <li>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endauth
             </ul>
             </div>
         </div>

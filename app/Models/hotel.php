@@ -24,7 +24,7 @@ class hotel extends Model
 
     public function getRouteKeyName()
     {
-        return 'id_hotel';
+        return 'slug';
     }
 
     public function pelanggan()

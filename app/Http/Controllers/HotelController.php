@@ -12,7 +12,7 @@ class HotelController extends Controller
 
         
 
-        return view('home', [
+        return view('Dasbor/home', [
             "title" => "Daftar Hotel",
             "image" => "logo2.png",
             "name" => "QuickRoom",
@@ -30,7 +30,7 @@ class HotelController extends Controller
     // }
     public function show(hotel $hotel)
     {
-        return view('hotel', [
+        return view('Dasbor/hotel', [
             "title" => "Single Hotel",
             "name" => "QuickRoom",
             "hotel" => $hotel

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ProfilController extends Controller
 {
     public function index(){
-        return view('profil', [
+        return view('Dasbor/profil', [
         "title" => "Profil",
         "name" => "QuickRoom",
         "nama" => "Mikael",
