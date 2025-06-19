@@ -14,7 +14,7 @@ class tipe_kamarFactory extends Factory
     public function definition()
     {
         return [
-            'jenis' => $this->faker->randomElement(['standard', 'deluxe', 'suite']),
+            'jenis' => $this->faker->randomElement('single', 'double', 'twin', 'suite', 'family'),
             'deskripsi' => $this->faker->sentence,
             'kapasitas' => $this->faker->numberBetween(1, 10),
             'harga' => $this->faker->numberBetween(50000, 500000),

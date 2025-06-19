@@ -14,10 +14,7 @@ class Pelanggan extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'nama',
-        'email',
-        'no_hp',
-        'alamat',
+        'id_hotel',
         'id_user',
     ];
 

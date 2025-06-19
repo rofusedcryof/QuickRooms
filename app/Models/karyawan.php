@@ -12,10 +12,6 @@ class karyawan extends Model
     protected $primaryKey = 'id_karyawan';
     protected $keyType = 'int';
     protected $fillable = [
-        'nama',
-        'email',
-        'no_hp',
-        'alamat',
         'jabatan',
         'id_user',
         'id_hotel'

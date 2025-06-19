@@ -21,7 +21,9 @@ class Admin extends Model
     public $timestamps = true;
 
     // field yg boleh diisi
-    protected $fillable = ['id_user', 'nama', 'email', 'no_hp', 'password'];
+    protected $fillable = [
+        'id_user'
+    ];
 
 
     public function user()

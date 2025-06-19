@@ -102,6 +102,9 @@
                 <button type="submit">Login</button>
             </div>
         </form>
+        <div class="form-footer">
+            <p>Belum punya akun? <a href="{{ route('register') }}">Daftar di sini</a></p>
+        </div>
     </div>
 </body>
 </html>

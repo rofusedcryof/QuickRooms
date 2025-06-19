@@ -14,10 +14,6 @@ return new class extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->id('id_admin');
             $table->unsignedBigInteger('id_user')->unique()->nullable(); // Relasi dengan tabel users
-            $table->string('nama', 100);
-            $table->string('password');
-            $table->string('email', 100)->unique();
-            $table->string('no_hp', 20)->nullable();
             $table->softDeletes(); // untuk menyimpan waktu penghapusan soft delete
             $table->timestamps();
 

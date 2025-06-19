@@ -10,13 +10,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('id_user');
-            $table->string('name');
+            $table->string('nama');
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('role', ['admin', 'karyawan', 'pelanggan'])->default('pelanggan');
-            $table->string('no_telp')->nullable();
+            $table->string('no_hp')->nullable();
             $table->text('alamat')->nullable();
-            $table->string('jabatan')->nullable(); // hanya digunakan oleh role 'karyawan'
             $table->unsignedBigInteger('id_hotel')->nullable();
 
             $table->foreign('id_hotel')->references('id_hotel')->on('hotels')->onDelete('set null');

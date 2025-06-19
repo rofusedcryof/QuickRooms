@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f4f8;
+            background-color: #1b263b;
             margin: 0;
             padding: 0;
             display: flex;
@@ -19,16 +19,18 @@
         .register-container {
             background-color: #ffffff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
+            text-align: left;
         }
 
         .register-container h1 {
-            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333333;
             margin-bottom: 20px;
-            color: #333;
         }
 
         .form-group {
@@ -39,14 +41,14 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #555;
+            color: #555555;
         }
 
         .form-group input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
             font-size: 14px;
         }
 
@@ -61,7 +63,7 @@
             background-color: #4e73df;
             color: #ffffff;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -69,6 +71,11 @@
 
         .form-group button:hover {
             background-color: #2e59d9;
+        }
+
+        .form-group .error {
+            color: red;
+            font-size: 12px;
         }
 
         .form-footer {
@@ -89,20 +96,11 @@
 <body>
     <div class="register-container">
         <h1>Register</h1>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <form action="{{ route('register') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="name">Nama</label>
-                <input type="text" name="nama" id="nama" value="{{ old('nama') }}" required>
+                <input type="text" name="name" id="name" value="{{ old('name') }}" required>
                 @error('name')
                     <span class="error">{{ $message }}</span>
                 @enderror
@@ -130,15 +128,15 @@
             </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" name="alamat" id="alamat" value="{{ old('alamat') }}" required>
+                <input type="text" name="alamat" id="alamat" value="{{ old('alamat') }}">
                 @error('alamat')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="no_hp">Nomor Telepon</label>
-                <input type="text" name="no_hp" id="no_hp" value="{{ old('no_hp') }}" required>
-                @error('no_hp')
+                <label for="no_telp">Nomor Telepon</label>
+                <input type="text" name="no_telp" id="no_telp" value="{{ old('no_telp') }}">
+                @error('no_telp')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>

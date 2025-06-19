@@ -19,6 +19,7 @@ class pelangganFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'no_hp' => $this->faker->phoneNumber,
             'alamat' => $this->faker->address,
+            'password' => bcrypt('password'),
         ];
     }
 }
