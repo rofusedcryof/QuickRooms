@@ -23,10 +23,16 @@ class LoginController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
-
+    
+            // Cek role user setelah login
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.hotels.index')->with('success', 'Login admin berhasil.');
+            }
+    
+            // Jika pelanggan
             return redirect()->intended('/home')->with('success', 'Login berhasil.');
         }
-
+    
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ]);

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('gambar')->nullable();
             $table->string('nama_hotel');
             $table->text('alamat_hotel');
-            $table->text('excerpt');
+            $table->text('excerpt')->nullable();;
             $table->text('body');
             $table->integer('harga');
             $table->timestamps();
