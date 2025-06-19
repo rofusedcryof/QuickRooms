@@ -134,7 +134,7 @@ class hotelFactory extends Factory
 
         return [
             'slug' => $this->faker->unique()->slug,
-            'gambar' => $this->faker->randomElement(['hotel1.jpeg', 'hotel2.jpeg']),
+            'gambar' => $this->faker->randomElement(['hotel1.jpeg', 'hotel2.jpeg', 'hotel3.jpg', 'hotel4.jpeg', 'hotel5.jpg', 'hotel6.webp', 'hotel7.jpeg', 'hotel8.jpeg', 'hotel9.jpg', 'hotel10.jpg']),
             'nama_hotel' => $this->faker->unique()->randomElement($namaHotels),
             'alamat_hotel' => $this->faker->address,
             'excerpt' => $this->faker->sentence,
