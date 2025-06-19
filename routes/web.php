@@ -60,7 +60,8 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
+Route::get('/pemesanan', [PemesananController::class, 'create'])->name('pemesanan.create');
+Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
 
 
 Route::get('/urusSendiri', function () {

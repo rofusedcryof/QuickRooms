@@ -130,56 +130,95 @@
     font-weight: 500;
     cursor: pointer;
     transition: 0.3s ease;
+
 }
 
-.navbar-right .btn-cari {
-    background-color: transparent;
-    color: #16a34a;
-    border: 1px solid #16a34a;
+.navbar-left .brand-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
 }
 
-.navbar-right .btn-cari:hover {
-    background-color: #16a34a;
-    color: white;
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar-right .btn-login {
-    background-color: #2563eb;
-    color: white;
+.navbar-menu li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  transition: color 0.3s;
 }
 
-.navbar-right .btn-login:hover {
-    background-color: #1d4ed8;
+.navbar-menu li a:hover {
+  color: #66b2ff;
 }
 
-.navbar-right .btn-signup {
-    background-color: #16a34a;
-    color: white;
+.navbar-search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 36px;
+  padding: 0 12px;
 }
 
-.navbar-right .btn-signup:hover {
-    background-color: #15803d;
+.navbar-search input[type="search"] {
+  border: none;
+  padding: 6px 8px;
+  outline: none;
+  width: 160px;
+  font-size: 14px;
+  color: #333;
+  background: none;
 }
 
-.dropdown-menu {
-    background-color: white;
-    border-radius: 6px;
-    padding: 5px 0;
+.navbar-search button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding-left: 6px;
 }
 
-.dropdown-menu a {
-    color: black !important; /* teks item dropdown jadi hitam */
-    padding: 8px 15px;
-    display: block;
-    text-decoration: none;
+.navbar-auth {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.dropdown-menu a:hover {
-    background-color: #f1f5f9;
+.btn-login,
+.btn-register {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s;
 }
 
-.navbar-nav .nav-item a {
-    font-size: 1.1rem;
-    font-weight: 500;
+.btn-login {
+  background-color: transparent;
+  border: 1px solid #66b2ff;
+  color: #66b2ff;
 }
-    </style>
+
+.btn-login:hover {
+  background-color: #66b2ff;
+  color: #0d1b2a;
+}
+
+.btn-register {
+  background-color: #66b2ff;
+  color: #0d1b2a;
+}
+
+.btn-register:hover {
+  background-color: #3399ff;
+}
+
+</style>
