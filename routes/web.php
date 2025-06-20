@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\AdminHotelController;
 
 Route::get('Dasbor/home', [HotelController::class, 'index'])-> name ('home');//jika mengakses URL home maka akan memanggil kelas HotelController dan menjalankan method index
 Route::get('/home', [LoginController::class, 'index'])->middleware('auth')->name('home');
+Route::get('/home', [HotelController::class, 'index']);
 
 
 Route::get('bantuan', [BantuanController::class, 'index']);
@@ -57,6 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
     Route::get('/pemesanan/{id}', [PemesananController::class, 'show'])->name('pemesanan.show');
     Route::get('/pemesanan/{id}/edit', [PemesananController::class, 'edit'])->name('pemesanan.edit');
+    Route::get('/pemesanan/{id_pesanan}', [PemesananController::class, 'show'])->name('pemesanan.show');
     Route::put('/pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
     Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy'])->name('pemesanan.destroy');
 });
@@ -84,7 +86,6 @@ Route::middleware(['auth', 'is.admin'])
     Route::put('/hotels/{id}', [AdminHotelController::class, 'update'])->name('hotels.update');
     Route::delete('/hotels/{id}', [AdminHotelController::class, 'destroy'])->name('hotels.destroy');
 });
-
 
 
 
