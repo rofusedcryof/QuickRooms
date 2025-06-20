@@ -91,10 +91,10 @@
                 <tbody>
                     @foreach($pemesanans as $pemesanan)
                         <tr>
-                            <td>{{ $pemesanan->user->nama ?? '-' }}</td>
-                            <td>{{ $pemesanan->hotel->nama ?? '-' }}</td>
-                            <td>{{ $pemesanan->check_in }}</td>
-                            <td>{{ $pemesanan->check_out }}</td>
+                            <td>{{ $user->nama ?? '-' }}</td>
+                            <td>{{ $pemesanan->id_kamar ?? '-' }}</td>
+                            <td>{{ $pemesanan->tanggal_checkin }}</td>
+                            <td>{{ $pemesanan->tanggal_checkout }}</td>
                         </tr>
                     @endforeach
                 </tbody>
