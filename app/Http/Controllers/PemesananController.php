@@ -27,36 +27,43 @@ class PemesananController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'check_in' => 'required|date|after_or_equal:today',
-            'check_out' => 'required|date|after:check_in',
-            'tipe_kamar' => 'required|exists:tipe_kamars,id_tipe',
-            'id_tingkat_kamar' => 'required|exists:tingkat_kamars,id_tingkat',
-            'jumlah_kamar' => 'required|integer|min:1',
-            'catatan' => 'nullable|string|max:500',
+            'id_pelanggan' => 'required|exists:pelanggans,id_pelanggan',
+            'id_kamar' => 'required|exists:tingkat_kamars,id_kamar',
+            'id_tipe' => 'required|exists:tipe_kamars,id_tipe',
+            'tanggal_checkin' => 'required|date|after_or_equal:today',
+            'tanggal_checkout' => 'required|date|after:tanggal_checkin',
+            'catatan' => 'nullable|string',
         ]);
 
-        Pemesanan::create([
-            'nama' => $validated['nama'],
-            'email' => $validated['email'],
-            'check_in' => $validated['check_in'],
-            'check_out' => $validated['check_out'],
-            'id_tipe_kamar' => $validated['tipe_kamar'],
-            'id_tingkat_kamar' => $validated['id_tingkat_kamar'],
-            'jumlah_kamar' => $validated['jumlah_kamar'],
-            'catatan' => $validated['catatan'],
+        // Hitung total harga (misal: harga tipe kamar x total_harga)
+        $tipe = \App\Models\TipeKamar::find($validated['id_tipe']);
+        $total_harga = $tipe ? $tipe->harga : 0;
+
+        $pemesanan = \App\Models\Pemesanan::create([
+            'id_pelanggan' => $validated['id_pelanggan'],
+            'id_kamar' => $validated['id_kamar'],
+            'id_tipe' => $validated['id_tipe'],
+            'tanggal_checkin' => $validated['tanggal_checkin'],
+            'tanggal_checkout' => $validated['tanggal_checkout'],
+            'catatan' => $validated['catatan'] ?? null,
+            'total_harga' => $total_harga,
+            'status' => 'booking',
         ]);
 
-        return redirect()->route('pemesanan.index')->with('success', 'Pemesanan berhasil dibuat.');
+        return redirect()->route('pemesanan.show', $pemesanan->id_pesanan)
+            ->with('success', 'Pemesanan berhasil!');
     }
 
 
 
-    public function show($id)
+    public function show($id_pesanan)
     {
-        $pemesanan = Pemesanan::findOrFail($id);
-        return view('pemesanan.show', compact('pemesanan'));
+        $pemesanan = \App\Models\Pemesanan::with(['pelanggan.user', 'tipe_kamar', 'tingkat_kamar'])->findOrFail($id_pesanan);
+
+        return view('Dasbor_pelanggan.detail_pemesanan', [
+            'pemesanan' => $pemesanan,
+            'title' => 'Detail Pemesanan'
+        ]);
     }
 
     public function edit($id) {}

@@ -220,5 +220,19 @@
 .btn-register:hover {
   background-color: #3399ff;
 }
+.dropdown-menu {
+    background-color: #fff;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #1e293b !important; /* warna teks gelap */
+    font-weight: 500;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item.active {
+    background-color: #e6f0fa;
+    color: #2563eb !important; /* warna biru saat hover */
+}
 
 </style>

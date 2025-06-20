@@ -12,13 +12,15 @@ class Pemesanan extends Model
     protected $table = 'pemesanans'; // Nama tabel di database
     protected $primaryKey = 'id_pesanan';
     protected $fillable = [
-        'nama',
-        'email',
-        'check_in',
-        'check_out',
-        'id_tipe_kamar',
+        'id_pelanggan',
+        'id_kamar',
+        'id_tipe',
+        'tanggal_checkin',
+        'tanggal_checkout',
         'jumlah_kamar',
-        'catatan',
+        'status',
+        'total_harga',
+        'catatan'
     ];
 
     //relasi dgn class pelanggan
